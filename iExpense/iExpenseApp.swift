@@ -11,8 +11,7 @@ import SwiftUI
 struct iExpenseApp: App {
   var body: some Scene {
     WindowGroup {
-      var user = UserViewModel()
-      ContentView().environmentObject(user)
+      ContentView().environmentObject(User())
     }
   }
 }

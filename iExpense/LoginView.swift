@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-  @EnvironmentObject var userViewModel: UserViewModel
+  @EnvironmentObject var userViewModel: User
   
   var body: some View {
     VStack(spacing: 20) {
