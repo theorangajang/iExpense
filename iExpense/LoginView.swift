@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+  @Environment(\.presentationMode) var presentationMode
   @EnvironmentObject var userViewModel: User
   
   var body: some View {
@@ -27,14 +28,18 @@ struct LoginView: View {
           RoundedRectangle(cornerRadius: 20)
             .stroke(Color.blue, lineWidth: 4)
         )
-      
       Button("Log in") {
         userViewModel.loginUser()
       }.disabled(!userViewModel.isValidInfo)
-      
-      if userViewModel.isLoggedIn {
-        Text("user is now logged in!!")
-      }
+    }
+    .onReceive(userViewModel.$isLoggedIn) { (isLoggedIn) in
+      if isLoggedIn { presentationMode.wrappedValue.dismiss() }
+    }
+  }
+  
+  func dismissView() {
+    if userViewModel.isLoggedIn {
+      presentationMode.wrappedValue.dismiss()
     }
   }
 }

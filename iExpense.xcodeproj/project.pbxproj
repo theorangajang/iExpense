@@ -10,6 +10,8 @@
 		C727D23B2594071A006D3221 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727D23A2594071A006D3221 /* LoginView.swift */; };
 		C727D24025940760006D3221 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727D23F25940760006D3221 /* User.swift */; };
 		C727D263259471D4006D3221 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727D262259471D4006D3221 /* LoginService.swift */; };
+		C727D2C425966BD3006D3221 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727D2C325966BD3006D3221 /* Encodable+Extensions.swift */; };
+		C727D2D125966CCC006D3221 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C727D2D025966CCC006D3221 /* Data+Extensions.swift */; };
 		C7F23B1225912570007EC72A /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F23B1125912570007EC72A /* iExpenseApp.swift */; };
 		C7F23B1425912570007EC72A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F23B1325912570007EC72A /* ContentView.swift */; };
 		C7F23B1625912572007EC72A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F23B1525912572007EC72A /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		C727D23A2594071A006D3221 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C727D23F25940760006D3221 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C727D262259471D4006D3221 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		C727D2C325966BD3006D3221 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		C727D2D025966CCC006D3221 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		C7F23B0E25912570007EC72A /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F23B1125912570007EC72A /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
 		C7F23B1325912570007EC72A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +98,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		C727D2C225966B81006D3221 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C727D2C325966BD3006D3221 /* Encodable+Extensions.swift */,
+				C727D2D025966CCC006D3221 /* Data+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C7F23B0525912570007EC72A = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,7 @@
 		C7F23B1025912570007EC72A /* iExpense */ = {
 			isa = PBXGroup;
 			children = (
+				C727D2C225966B81006D3221 /* Extensions */,
 				C727D267259471E0006D3221 /* Service */,
 				C7F23B5125912EC8007EC72A /* Models */,
 				C7F23B1125912570007EC72A /* iExpenseApp.swift */,
@@ -302,6 +316,8 @@
 				C7F23B4D25912BB5007EC72A /* DeleteList.swift in Sources */,
 				C7F23B1225912570007EC72A /* iExpenseApp.swift in Sources */,
 				C727D23B2594071A006D3221 /* LoginView.swift in Sources */,
+				C727D2C425966BD3006D3221 /* Encodable+Extensions.swift in Sources */,
+				C727D2D125966CCC006D3221 /* Data+Extensions.swift in Sources */,
 				C727D263259471D4006D3221 /* LoginService.swift in Sources */,
 				C727D24025940760006D3221 /* User.swift in Sources */,
 				C7F23B5825912F30007EC72A /* Expenses.swift in Sources */,
