@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct iExpenseApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      var user = UserViewModel()
+      ContentView().environmentObject(user)
     }
+  }
 }
