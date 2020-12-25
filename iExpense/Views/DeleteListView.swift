@@ -35,8 +35,8 @@ struct DeleteListView: View {
   }
 }
 
-struct DeleteList_Previews: PreviewProvider {
+struct DeleteListView_Previews: PreviewProvider {
   static var previews: some View {
-    DeleteList()
+    DeleteListView()
   }
 }
