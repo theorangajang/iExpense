@@ -14,20 +14,11 @@ struct LoginView: View {
   var body: some View {
     VStack(spacing: 20) {
       TextField("Username", text: $userViewModel.username)
-        .font(.title3)
-        .padding()
-        .overlay(
-          RoundedRectangle(cornerRadius: 20)
-            .stroke(Color.blue, lineWidth: 4)
-        )
+        .textfieldBorder()
       
       TextField("Password", text: $userViewModel.password)
-        .font(.title3)
-        .padding()
-        .overlay(
-          RoundedRectangle(cornerRadius: 20)
-            .stroke(Color.blue, lineWidth: 4)
-        )
+        .textfieldBorder()
+      
       Button("Log in") {
         userViewModel.loginUser()
       }.disabled(!userViewModel.isValidInfo)

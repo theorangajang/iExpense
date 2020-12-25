@@ -9,14 +9,16 @@ import Foundation
 import Combine
 
 class User: ObservableObject {
+  
+  // MARK: - Inputs
   @Published var username = ""
   @Published var password = ""
   
+  // MARK: - Outputs
   @Published var isValidInfo = false
   @Published var isLoggedIn = false
   
-  private let loginService = LoginService()
-  
+  // MARK: - Private Publishers
   private var isValidUsername: AnyPublisher<Bool, Never> {
     $username
       .debounce(for: 0.8, scheduler: RunLoop.main)
@@ -52,7 +54,11 @@ class User: ObservableObject {
       .eraseToAnyPublisher()
   }
   
+  // MARK: - Private Variables
   private var cancellableSet = Set<AnyCancellable>()
+  
+  // MARK: - Private Constants
+  private let loginService = LoginService()
   
   init() {
     validInfo

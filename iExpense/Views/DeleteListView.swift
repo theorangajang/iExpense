@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeleteList: View {
+struct DeleteListView: View {
   @State private var numbers = [Int]()
   @State private var currentNumber = 1
   
