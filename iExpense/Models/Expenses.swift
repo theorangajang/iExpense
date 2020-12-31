@@ -19,15 +19,13 @@ class Expenses: ObservableObject {
   
   init() {
     if let data = UserDefaults.standard.data(forKey: "Items") {
-      let decoder = JSONDecoder()
-      if let decoded = try? decoder.decode([ExpenseItem].self, from: data) {
-        items = decoded
-      } else {
-        items = []
+      do {
+        items = try data.decoded() as [ExpenseItem]
+      } catch {
+        fatalError("could not decode Items in UserDefaults")
       }
     } else {
       items = []
-      
     }
   }
 }

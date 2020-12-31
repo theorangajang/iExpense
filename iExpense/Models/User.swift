@@ -1,78 +1,14 @@
 //
-//  UserViewModel.swift
+//  User.swift
 //  iExpense
 //
-//  Created by Alex Jang on 12/23/20.
+//  Created by Alex Jang on 12/30/20.
 //
 
 import Foundation
-import Combine
 
-class User: ObservableObject {
-  
-  // MARK: - Inputs
-  @Published var username = ""
-  @Published var password = ""
-  
-  // MARK: - Outputs
-  @Published var isValidInfo = false
-  @Published var isLoggedIn = false
-  
-  // MARK: - Private Publishers
-  private var isValidUsername: AnyPublisher<Bool, Never> {
-    $username
-      .debounce(for: 0.8, scheduler: RunLoop.main)
-      .removeDuplicates()
-      .map { input in
-        return input.count > 3
-      }
-      .eraseToAnyPublisher()
-  }
-  
-  private var isValidPassword: AnyPublisher<Bool, Never> {
-    $password
-      .debounce(for: 0.8, scheduler: RunLoop.main)
-      .removeDuplicates()
-      .map { input in
-        return input.count > 3
-      }
-      .eraseToAnyPublisher()
-  }
-  
-  private var validInfo: AnyPublisher<Bool, Never> {
-    Publishers.CombineLatest(isValidUsername, isValidPassword)
-      .receive(on: RunLoop.main)
-      .map { validUsername, validPassword in
-        return validUsername && validPassword
-      }
-      .eraseToAnyPublisher()
-  }
-  
-  private var loggedIn: AnyPublisher<Bool, Never> {
-    loginService.$isLoggedIn
-      .receive(on: RunLoop.main)
-      .eraseToAnyPublisher()
-  }
-  
-  // MARK: - Private Variables
-  private var cancellableSet = Set<AnyCancellable>()
-  
-  // MARK: - Private Constants
-  private let loginService = LoginService()
-  
-  init() {
-    validInfo
-      .receive(on: RunLoop.main)
-      .assign(to: \.isValidInfo, on: self)
-      .store(in: &cancellableSet)
-    
-    loggedIn
-      .receive(on: RunLoop.main)
-      .assign(to: \.isLoggedIn, on: self)
-      .store(in: &cancellableSet)
-  }
-  
-  func loginUser() {
-    loginService.loginUser(username, password)
-  }
+struct User: Codable {
+  // TODO: Need to replace with actual user storage data
+  let fileSizeBytes: Int
+  let url: String
 }

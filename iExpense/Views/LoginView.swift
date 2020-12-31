@@ -9,27 +9,27 @@ import SwiftUI
 
 struct LoginView: View {
   @Environment(\.presentationMode) var presentationMode
-  @EnvironmentObject var userViewModel: User
+  @EnvironmentObject var loginViewModel: LoginViewModel
   
   var body: some View {
     VStack(spacing: 20) {
-      TextField("Username", text: $userViewModel.username)
+      TextField("Username", text: $loginViewModel.username)
         .textfieldBorder()
       
-      TextField("Password", text: $userViewModel.password)
+      TextField("Password", text: $loginViewModel.password)
         .textfieldBorder()
       
       Button("Log in") {
-        userViewModel.loginUser()
-      }.disabled(!userViewModel.isValidInfo)
+        loginViewModel.loginUser()
+      }.disabled(!loginViewModel.isValidInfo)
     }
-    .onReceive(userViewModel.$isLoggedIn) { (isLoggedIn) in
+    .onReceive(loginViewModel.$isLoggedIn) { (isLoggedIn) in
       if isLoggedIn { presentationMode.wrappedValue.dismiss() }
     }
   }
   
   func dismissView() {
-    if userViewModel.isLoggedIn {
+    if loginViewModel.isLoggedIn {
       presentationMode.wrappedValue.dismiss()
     }
   }

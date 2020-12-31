@@ -12,7 +12,7 @@ enum ActiveSheet {
 }
 
 struct ContentView: View {
-  @EnvironmentObject var user: User
+  @EnvironmentObject var user: LoginViewModel
 
   @ObservedObject var expenses = Expenses()
 

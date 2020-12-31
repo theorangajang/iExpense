@@ -13,12 +13,17 @@ class LoginService {
   @Published var isLoggedIn = false
   
   // MARK: - Private Constants
-  private let baseaseURL = "https://api.openweathermap.org/data/2.5/weather"
-  private let apiKey = "cf0f31ab062ee5159fbd1c1c41a7057a"
+  private let request: URLRequest
+  private let api: API
+  
+  // MARK: - Initializer
+  init() {
+    api = API()
+    request = URLRequest(url: URL.loginURL!)
+  }
   
   // MARK: - API Functions
-  func loginUser(_ username: String,_ password: String) {
-    sleep(1)
-    isLoggedIn = true
+  func loginUser(_ username: String,_ password: String) -> AnyPublisher<User, ResponseError> {
+    return api.run(request)
   }
 }
